@@ -1,11 +1,6 @@
-.post-title {
-  margin: 1rem;
-}
-
-.post-img-block {
+.post-img-div {
   display: flex;
   justify-content: center;
-  margin: 3rem;
 }
 .post-img {
   height: 30rem;

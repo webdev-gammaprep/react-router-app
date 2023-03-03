@@ -4,13 +4,13 @@ export default function ViewPost({ postId }) {
 
   return (
     <div className='container'>
-      <h1 className='post-title'>Title</h1>
+      <h1 className='post-title m-3 p-3'>Title</h1>
       <hr />
-      <div className='post-body'>
-        <div className='post-img-div'>
+      <div className='post-body m-3'>
+        <div className='post-img-div m-3 p-3'>
           <img className='post-img' src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1420&q=80" alt="" />
         </div>
-        <div className='post-content'>
+        <div className='post-content m-3 p-3'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sagittis urna nec dui faucibus, in mollis urna mollis. Pellentesque pretium ipsum erat, sit amet venenatis velit pretium euismod. Sed et tincidunt massa. Phasellus ac malesuada eros, placerat feugiat felis. Integer felis quam, consectetur in nulla pharetra, suscipit viverra ex. Aenean aliquet nibh eget accumsan ultricies. Vestibulum eget tortor et magna varius placerat. Nullam quis euismod quam. Integer eget quam nec leo pretium vestibulum.
 
           Quisque faucibus et purus eget luctus. Donec velit sem, finibus a tincidunt quis, sollicitudin eu erat. Vivamus vitae vestibulum dui. Suspendisse blandit elit efficitur condimentum tempor. Phasellus in sem suscipit, semper enim eget, volutpat quam. Fusce iaculis rutrum lacinia. Donec metus sapien, posuere at ligula ut, cursus mollis dui. Vivamus vestibulum vulputate urna nec dapibus.

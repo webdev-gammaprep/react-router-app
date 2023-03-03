@@ -1,6 +1,42 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 export default function AddPost() {
+  const navigate = useNavigate();
+  var [title, setTitle] = useState();
+  var [image, setImage] = useState();
+  var [content, setContent] = useState();
+
+  function updateTitle(event) {
+    setTitle(event.target.value);
+  }
+  function updateImage(event) {
+    setImage(event.target.value);
+  }
+  function updateContent(event) {
+    setContent(event.target.value);
+  }
+
+  function createPost(event) {
+    event.preventDefault();
+    fetch('http://localhost:3000/api/v1/post', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        title: title,
+        image: image,
+        content: content
+      })
+    }).then(res => {
+      console.log(res);
+      navigate('/');
+    });
+  }
+
   return (
     <div>
       <h1 className='m-3'>Add Post</h1>
@@ -9,19 +45,19 @@ export default function AddPost() {
         <Form>
           <Form.Group className="m-3" controlId="title">
             <Form.Label>Post Title</Form.Label>
-            <Form.Control type="text" placeholder="Title" />
+            <Form.Control onChange={updateTitle} type="text" placeholder="Title" />
           </Form.Group>
 
           <Form.Group className="m-3" controlId="url">
             <Form.Label>Image URL</Form.Label>
-            <Form.Control type="text" placeholder="Image url" />
+            <Form.Control onChange={updateImage} type="text" placeholder="Image url" />
           </Form.Group>
 
           <Form.Group className='m-3' controlId='content'>
             <Form.Label>Content</Form.Label>
-            <Form.Control as="textarea" />
+            <Form.Control as="textarea" onChange={updateContent} />
           </Form.Group>
-          <Button className='m-3' variant="primary" type="submit">
+          <Button className='m-3' variant="primary" type="submit" onClick={createPost}>
             Submit
           </Button>
         </Form>

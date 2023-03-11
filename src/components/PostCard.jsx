@@ -13,7 +13,7 @@ export default function PostCard({ post }) {
         <Card.Text>
           {shortContent}
         </Card.Text>
-        <Link to= {`/post/${post.id}`} >
+        <Link to= {`/post/${post._id}`} >
           <Button variant="primary">View more</Button>
         </Link>
       </Card.Body>

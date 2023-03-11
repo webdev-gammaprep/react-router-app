@@ -1,12 +1,20 @@
-
+import { useEffect } from 'react'
 import './App.css'
 import Button from 'react-bootstrap/Button';
 import PostList from './components/PostList';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 function App() {
 
+  var navigate = useNavigate();
+  useEffect(() => {
+    let token = localStorage.getItem('srt');
+    if (!token) {
+      navigate('/login');
+    }
+  }, [])
   return (
     <>
       <div className="App">

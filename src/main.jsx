@@ -8,8 +8,13 @@ import {
 } from 'react-router-dom';
 import ViewPost from './pages/ViewPost'
 import AddPost from './pages/AddPost'
+import Login from './pages/Login'
 
 const router = createBrowserRouter([
+  {
+    path: '/login',
+    element: <Login />,
+  },
   {
     path: '/',
     element: <App />,

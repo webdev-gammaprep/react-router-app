@@ -1,13 +1,19 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import './ViewPost.css'
 
 export default function ViewPost() {
+  var navigate = useNavigate()
   var { postId } = useParams();
   var [post, setPost] = useState();
+
   useEffect(() => {
     async function getPost() {
-      var res = await fetch(`http://localhost:3000/api/v1/post/${postId}`);
+      let authToken = localStorage.getItem('srt');
+      if (!authToken) {
+        navigate('/login');
+      }
+      var res = await fetch(`http://localhost:3000/api/v1/posts/${postId}`, { headers: { 'Authorization': `Bearer ${authToken}` } });
       var data = await res.json();
       setPost(data);
     }

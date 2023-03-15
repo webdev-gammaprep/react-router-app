@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import bcrypt from 'bcryptjs'
+import baseUrl from '../common'
 
 export default function Login() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ export default function Login() {
 
   function login(event) {
     event.preventDefault();
-    fetch('http://localhost:3000/api/v1/login', {
+    fetch(baseUrl + '/login', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"

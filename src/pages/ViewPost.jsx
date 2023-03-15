@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom';
 import './ViewPost.css'
+import baseUrl from '../common'
 
 export default function ViewPost() {
   var navigate = useNavigate()
@@ -13,7 +14,7 @@ export default function ViewPost() {
       if (!authToken) {
         navigate('/login');
       }
-      var res = await fetch(`http://localhost:3000/api/v1/posts/${postId}`, { headers: { 'Authorization': `Bearer ${authToken}` } });
+      var res = await fetch(`${baseUrl}/posts/${postId}`, { headers: { 'Authorization': `Bearer ${authToken}` } });
       var data = await res.json();
       setPost(data);
     }

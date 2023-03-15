@@ -2,6 +2,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import baseUrl from '../common'
 
 export default function AddPost() {
   const navigate = useNavigate();
@@ -30,11 +31,11 @@ export default function AddPost() {
 
   function createPost(event) {
     event.preventDefault();
-    fetch('http://localhost:3000/api/v1/posts/', {
+    fetch(baseUrl + '/posts/', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "Authorization":  `Bearer ${token}`
+        "Authorization": `Bearer ${token}`
       },
       body: JSON.stringify({
         title: title,
